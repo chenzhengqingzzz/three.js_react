@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import * as THREE from 'three'
+import TWEEN from "tween";
 import Test from "../Test";
 
 export default function Scene(){
@@ -15,7 +16,7 @@ export default function Scene(){
 
     //红色立方体
     const geometry = new THREE.BoxGeometry(1, 1, 1)
-    const material = new THREE.MeshBasicMaterial({color: 'red'})
+    const material = new THREE.MeshBasicMaterial({color: 'blue'})
     const mesh = new THREE.Mesh(geometry, material)
     //添加立方体到场景
     scene.add(mesh)
@@ -31,6 +32,11 @@ export default function Scene(){
     camera.position.z = 3
     //添加相机到场景
     scene.add(camera)
+    var tween = new TWEEN.Tween(camera.position)
+    tween.to({y: 100}, 1000)
+    tween.start()
+    console.log(camera.position.y);
+
 
     //初始化渲染器
     //将自定义变量放入一个自定义容器中

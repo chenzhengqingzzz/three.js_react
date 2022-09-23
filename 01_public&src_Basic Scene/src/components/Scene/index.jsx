@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import * as THREE from 'three'
 import Test from "../Test";
+//启用轨道控制
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
 export default function Scene(){
   //相当于componentDidMount钩子
